@@ -1,47 +1,61 @@
-﻿# NITAMUN 4.0 Starter Website
+﻿# NITAMUN 4
 
-A Next.js starter for the white/navy NITAMUN 4.0 website, built with App Router, TypeScript, Tailwind CSS, and Supabase PostgreSQL.
-
-## Features
-
-- Home page with public content and search/filter UI
-- Committees and previous editions sections
-- Registration and admin flows
-- Supabase-ready client and server setup
-- Responsive, event-focused landing page design
-
-## Tech Stack
-
-- Next.js 15
-- React 19
-- TypeScript
-- Tailwind CSS
-- Supabase
+A Next.js project for the NITAMUN 4 conference website, featuring public pages, committee information, registration flow, admin views, and Supabase integration.
 
 ## Project Structure
 
 ```text
-.
+nitamun-4/
 ├── app/
-│   ├── admin/
+│   ├── page.tsx                 # Home + country availability
 │   ├── committees/
-│   ├── previous-editions/
+│   │   └── page.tsx
+│   ├── blogs/
+│   │   ├── page.tsx
+│   │   └── [slug]/page.tsx
 │   ├── register/
+│   │   └── page.tsx
+│   ├── previous-editions/
+│   │   └── page.tsx
 │   ├── resources/
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
+│   │   └── page.tsx
+│   ├── admin/
+│   │   ├── page.tsx
+│   │   ├── allotments/page.tsx
+│   │   └── registrations/page.tsx
+│   └── api/
+│       └── registrations/route.ts
 ├── components/
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   ├── CountryTable.tsx
+│   ├── CommitteeCard.tsx
+│   └── RegistrationForm.tsx
 ├── lib/
-├── supabase/
-├── middleware.ts
-├── package.json
-├── postcss.config.mjs
-├── tailwind.config.*
-├── tsconfig.json
-├── eslint.config.mjs
-└── README.md
+│   └── supabase/
+└── public/
+    ├── images/
+    └── resources/
 ```
+
+## Features
+
+- Public home page with country availability and filters
+- Committee showcase pages
+- Blog/news pages with dynamic article routing
+- Registration flow
+- Previous editions section
+- Resource hub
+- Admin dashboard with allotments and registrations
+- API route for registration submissions
+
+## Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Supabase
 
 ## Getting Started
 
@@ -51,23 +65,26 @@ A Next.js starter for the white/navy NITAMUN 4.0 website, built with App Router,
    npm install
    ```
 
-2. Create a local environment file for Supabase:
+2. Add your environment variables for Supabase:
 
    ```bash
-   copy NUL .env.local
+   NEXT_PUBLIC_SUPABASE_URL=
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=
    ```
 
-   Then add your `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` values.
-
-3. Start the development server:
+3. Run the development server:
 
    ```bash
    npm run dev
    ```
 
-4. Open your browser at `http://localhost:3000`.
+4. Open the app in your browser:
 
-## Available Scripts
+   ```text
+   http://localhost:3000
+   ```
+
+## Useful Scripts
 
 ```bash
 npm run dev
@@ -78,4 +95,4 @@ npm run lint
 
 ## Notes
 
-This project is a starter template and can be extended with the real event content, committee data, registrations, and admin panels for the NITAMUN 4.0 experience.
+This project is structured as a starter website for the NITAMUN 4 event and can be extended with dynamic content, data models, and admin functionality as the event grows.
